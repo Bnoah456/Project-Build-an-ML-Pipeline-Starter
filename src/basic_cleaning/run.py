@@ -31,12 +31,13 @@ def go(args):
     df['last_review'] = pd.to_datetime(df['last_review'])
 
     # TODO: add code to fix the issue happened when testing the model
-    # Convert last_review to datetime
-    df['last_review'] = pd.to_datetime(df['last_review'])
-
     # Restrict long and lat
     idx_coord = df['longitude'].between(-74.25, -73.50) & df['latitude'].between(40.5, 41.2)
     df = df[idx_coord].copy()
+    # Convert last_review to datetime
+    #df['last_review'] = pd.to_datetime(df['last_review'])
+
+    
 
     # Convert results to CSV file
     logger.info("Saving everything to a csv file.")
